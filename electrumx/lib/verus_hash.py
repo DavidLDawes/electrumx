@@ -50,6 +50,10 @@ def verus_hash2b(msg):
 def verus_hash2_1(msg):
     return vh.verushash_v2b1(msg)
 
+# verus_hash 2b2
+def verus_hash2_2(msg):
+    return vh.verushash_v2b1(msg)
+
 def main():
     s = "Test1234"
     ary = []
@@ -83,6 +87,9 @@ def main():
     print("= verus_hash v2.1 on test data 29674026732870ff73268723987349028fb9901270ff73268723987349028fb990128fb99012752a9b765628749812 - output = ")
     print(ps(op) + "\n")
 
+    op = verus_hash2_2(bytes(vh2_testdata))
+    print("= verus_hash v2.2 on test data 29674026732870ff73268723987349028fb9901270ff73268723987349028fb990128fb99012752a9b765628749812 - output = ")
+    print(ps(op) + "\n")
 
 if __name__ == '__main__':
     main()

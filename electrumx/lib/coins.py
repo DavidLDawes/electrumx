@@ -42,7 +42,7 @@ import electrumx.lib.util as util
 from electrumx.lib.hash import Base58, hash160, double_sha256, hash_to_hex_str
 from electrumx.lib.hash import HASHX_LEN
 from electrumx.lib.script import ScriptPubKey, OpCodes
-from electrumx.lib.verus_hash import verus_hash, verus_hash2b, verus_hash2_1
+from electrumx.lib.verus_hash import verus_hash, verus_hash2b, verus_hash2_1, verus_hash2_2
 import electrumx.lib.tx as lib_tx
 import electrumx.server.block_processor as block_proc
 import electrumx.server.daemon as daemon
@@ -1401,8 +1401,10 @@ class Verus(KomodoMixin, EquihashMixin, Coin):
             if (header[0] == 4 and header[2] >= 1):
                 if (len(header) < 144 or header[143] < 3):
                     return verus_hash2b(header)
-                else:
+                elif header[143] < 4:
                     return verus_hash2_1(header)
+                else:
+                    return verus_hash2_2(header)
             else:
                 return verus_hash(header)
 
