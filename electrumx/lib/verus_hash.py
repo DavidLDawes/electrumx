@@ -52,7 +52,7 @@ def verus_hash2_1(msg):
 
 # verus_hash 2b2
 def verus_hash2_2(msg):
-    return vh.verushash_v2b1(msg)
+    return vh.verushash_v2b2(msg)
 
 def main():
     s = "Test1234"
